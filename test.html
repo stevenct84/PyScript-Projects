@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Figures with PyScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/panel/0.14.3/panel.min.css">
+    <script src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/panel@0.14.3/dist/panel.min.js"></script>
+    <style>
+        .content {
+            text-align: center;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+        .button-container {
+            margin: auto;
+            width: 50%;
+        }
+        .button-container button {
+            margin-right: 10px;
+        }
+        #svg-panel {
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ddd;
+            background: #fff;
+            width: 50%;
+            height: 200px;
+            margin: auto;
+            margin-top: 10%;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="content">
+        <h1>SVG Figures</h1>        
+        <div class="button-container">
+            <button onclick="create_circle()">Circle</button>
+            <button onclick="create_square()">Square</button>
+            <button onclick="create_triangle()">Triangle</button>
+            <button onclick="create_diamond()">Diamond</button>
+        </div>
+        <div id="svg-panel"></div>
+    </div> 
+        <!-- PyScript code -->
+        <py-script>
+            from pyodide.ffi import create_proxy
+            import js
+
+            def set_svg_content(svg_content):
+                # Inject SVG content into the panel
+                svg_panel = js.document.getElementById("svg-panel")
+                svg_panel.innerHTML = svg_content
+
+            # Define functions for different SVG shapes
+            def create_circle():
+                svg_content = '''
+                <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="80" stroke="black" stroke-width="3" fill="red" />
+                </svg>
+                '''
+                set_svg_content(svg_content)
+
+            def create_square():
+                svg_content = '''
+                <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="50" y="50" width="100" height="100" stroke="black" stroke-width="3" fill="blue" />
+                </svg>
+                '''
+                set_svg_content(svg_content)
+
+            def create_triangle():
+                svg_content = '''
+                <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="100,20 20,180 180,180" stroke="black" stroke-width="3" fill="green" />
+                </svg>
+                '''
+                set_svg_content(svg_content)
+
+            def create_diamond():
+                svg_content = '''
+                <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="100,20 180,100 100,180 20,100" stroke="black" stroke-width="3" fill="yellow" />
+                </svg>
+                '''
+                set_svg_content(svg_content)
+
+            # Create proxies for functions so they can be called from JavaScript
+            js.create_circle = create_proxy(create_circle)
+            js.create_square = create_proxy(create_square)
+            js.create_triangle = create_proxy(create_triangle)
+            js.create_diamond = create_proxy(create_diamond)
+        </py-script>
+    
+</body>
+</html>

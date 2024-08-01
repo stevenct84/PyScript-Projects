@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Figures with PyScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/panel/0.14.3/panel.min.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.7.1/core.css">
+      <script type="module" src="https://pyscript.net/releases/2024.7.1/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/panel@0.14.3/dist/panel.min.js"></script>
+</head>
+
+<body>
+    <div class="button-container">
+        <button py-click="create_circle">Circle</button>
+        <button py-click="create_square">Square</button>
+        <button py-click="create_triangle">Triangle</button>
+        <button py-click="create_diamond">Diamond</button>
+    </div>
+    <div id="svg-panel"></div>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
+</body>

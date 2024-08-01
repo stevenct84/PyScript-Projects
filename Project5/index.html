@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Drawing with PyScript</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.7.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.7.1/core.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <button id="drawCircle">Draw Circle</button>
+            <button id="drawSquare">Draw Square</button>
+            <button id="drawTriangle">Draw Triangle</button>
+            <label for="posix">Size:</label>
+            <input id="size" type="number" value="50">
+            <label for="posix">Position X:</label>
+            <input id="posix" type="number" value="50">
+            <label for="posiy">Position Y:</label>
+            <input id="posiy" type="number" value="50">
+            <label for="color">Color:</label>
+            <input id="color" type="color" value="#ADD8E6">
+            <button id="rewrite">Rewrite figure</button>
+        </div>
+        <svg  id="svgCanvas"></svg>
+    </div>
+
+
+    <script type="py" src="./main.py"></script>
+</body>
+</html>
