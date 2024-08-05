@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Red Recipe</title>
+    <title>SVG Panel</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.03.1/pyscript.css" />
     <script defer src="https://pyscript.net/releases/2023.03.1/pyscript.js"></script>
-    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.js"></script>
-    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.14.4/dist/panel.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.3.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.3.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.3.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@1.3.8/dist/panel.min.js"></script>
 </head>
 <body>
-    <nav class="navbar" style="background-color: #000000">
-        <div class="app-header">
-            <a class="title" href="" style="color: #f0ab3c">Panel Example</a>
-        </div>
-    </nav>
-    <div id="panel-container"></div>
+    <div id="main"></div>
     <py-config src="./pyscript.toml"></py-config>
     <py-script src="./main.py"></py-script>
 </body>
