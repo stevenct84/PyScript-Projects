@@ -57,7 +57,7 @@ def drawTriangle(event):
     svgCanvas.appendChild(triangle)
 
 
-def rewrite_shape(*args):
+def rewriteShape(*args):
     global currentShape
     if currentShape:
         #get the color, x, y and size for the figure
@@ -114,5 +114,5 @@ def setCurrentShape(shape):
 add_event_listener(drawCircleButton, 'click', drawCircle)
 add_event_listener(drawSquareButton, 'click', drawSquare)
 
-add_event_listener(rewriteButton, 'click', rewrite_shape)
+add_event_listener(rewriteButton, 'click', rewriteShape)
 add_event_listener(drawTriangleButton, 'click', drawTriangle)
