@@ -32,11 +32,12 @@ def drawSquare(event):
     global currentShape
     square = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
     size = 50
+    square.setAttribute('id', 'smallRect')
     square.setAttribute('x', 150)
     square.setAttribute('y', 150)
     square.setAttribute('width', size)
     square.setAttribute('height', size)
-    square.setAttribute('fill', '#f08080')
+    square.setAttribute('fill', '#FFFFFF')
     square.setAttribute('stroke', 'blue')
     square.setAttribute('stroke-width', '2')
     square.setAttribute('data-type', 'square')
@@ -58,6 +59,7 @@ def drawTriangle(event):
 
 
 def rewriteShape(*args):
+    
     global currentShape
     if currentShape:
         #get the color, x, y and size for the figure
@@ -72,17 +74,12 @@ def rewriteShape(*args):
         elif currentShape.getAttribute('data-type') == 'triangle':
             currentShape.setAttribute('points', f"{x},{y} {x-60},{y+170} {x+60},{y+170}")
            
-            '''
-            It can work: 
-            currentShape.setAttribute("transform", f"translate({x},{y})")
-            '''
         else:
             currentShape.setAttribute('x', x)
             currentShape.setAttribute('y', y)
             currentShape.setAttribute('width', size)
             currentShape.setAttribute('height', size)
         currentShape.setAttribute('fill', color)
-
 
 def setCurrentShape(shape):
     global currentShape
@@ -107,8 +104,6 @@ def setCurrentShape(shape):
         #update size field
         sizeInput.value = currentShape.getAttribute('width')
         sizeInput.value = currentShape.getAttribute('height')
-
-
 
 
 add_event_listener(drawCircleButton, 'click', drawCircle)
